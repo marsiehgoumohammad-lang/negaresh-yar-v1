@@ -2,69 +2,66 @@
 
 ## Development Strategy
 
-The project will be developed in small milestones.
+Negaresh Yar V1 will be developed in controlled milestones.
 
-Each milestone must be completed and tested before moving to the next one.
+Each milestone must be completed, tested, and reviewed before moving forward.
 
-The implementation agent must not skip milestones.
-
+The implementation agent must not skip steps.
 
 ---
 
-# Milestone 0 - Project Setup
+# Phase 0 - Project Migration
 
 Goal:
 
-Prepare the Laravel foundation.
-
+Replace the Laravel skeleton with the approved Next.js architecture.
 
 Tasks:
 
-- Verify Laravel installation.
-- Configure environment.
-- Configure database.
+- Create Next.js application.
+- Configure TypeScript.
 - Configure Tailwind CSS.
 - Configure RTL support.
-- Configure project fonts.
+- Configure project structure.
+- Configure environment variables.
 
 
-Completion Criteria:
+Restrictions:
 
-Laravel runs successfully without errors.
+Do not redesign UI.
 
+Do not add business features.
 
 ---
 
-# Milestone 1 - Design System Implementation
+# Phase 1 - Design System Implementation
 
 Goal:
 
-Create the base UI system.
-
+Create the visual foundation.
 
 Tasks:
 
-- Main layout.
+- Global layout.
+- Persian typography.
 - Header component.
 - Footer component.
 - Button components.
 - Card components.
-- Typography rules.
+- Responsive rules.
 
 
-Completion Criteria:
+Completion:
 
-A reusable UI foundation exists.
-
+Reusable UI foundation exists.
 
 ---
 
-# Milestone 2 - Homepage
+# Phase 2 - Homepage Development
 
 Goal:
 
-Build the main landing page.
-
+Create the main landing page.
 
 Sections:
 
@@ -73,88 +70,94 @@ Sections:
 - Services
 - AI Interpreter introduction
 - Trust section
-- Articles preview
-- Final CTA
+- Article preview
+- Call to action
 - Footer
 
 
 Priority:
 
-Mobile first.
-
+Mobile First.
 
 ---
 
-# Milestone 3 - AI Interpreter
+# Phase 3 - AI Judicial Interpreter
 
 Goal:
 
-Build the main product feature.
-
+Implement the main product feature.
 
 Tasks:
 
-- Upload page.
+- Upload interface.
 - File validation.
-- Gemini connection.
-- Result display.
+- Gemini API integration.
+- Result page.
 - AI warning message.
 
 
-Completion Criteria:
+Required Warning:
 
-User can upload a document and receive an AI explanation.
-
-
----
-
-# Milestone 4 - Request Page
-
-Goal:
-
-Create direct communication page.
-
-
-Tasks:
-
-- Messenger cards.
-- Social links management.
-- One-click messaging.
+AI generated interpretation may contain errors and is not a replacement for professional legal advice.
 
 
 ---
 
-# Milestone 5 - Admin Panel
+# Phase 4 - Request Communication Page
 
 Goal:
 
-Create management tools.
+Create simple contact flow.
+
+Features:
+
+- Messenger icons.
+- Editable links from admin.
+- One-click communication.
 
 
-Tasks:
+Supported:
+
+- WhatsApp
+- Telegram
+- Eitaa
+- Rubika
+- Bale
+
+
+---
+
+# Phase 5 - Admin Panel
+
+Goal:
+
+Create internal management system.
+
+
+Features:
 
 - Admin authentication.
 - Dashboard.
-- Settings.
+- Website settings.
 - Social links management.
 
 
 ---
 
-# Milestone 6 - Article System
+# Phase 6 - Article System
 
 Goal:
 
-Create SEO content workflow.
+Create SEO content engine.
 
 
-Tasks:
+Features:
 
 - Article management.
-- AI writing workflow.
-- Review agents.
+- AI article generation.
+- AI reviewers.
 - Score calculation.
-- Publishing rules.
+- Publishing workflow.
 
 
 Publishing Rule:
@@ -164,14 +167,14 @@ Final score must be >= 80.
 
 ---
 
-# Milestone 7 - Invoice System
+# Phase 7 - Invoice System
 
 Goal:
 
-Create simple invoice generation.
+Create simple invoice generator.
 
 
-Tasks:
+Features:
 
 - Invoice form.
 - Invoice items.
@@ -181,32 +184,33 @@ Tasks:
 
 ---
 
-# Milestone 8 - SEO Preparation
+# Phase 8 - SEO Implementation
 
 Goal:
 
-Prepare website for search engines.
+Prepare website for Google.
 
 
 Tasks:
 
-- Meta tags.
+- Metadata.
 - Sitemap.
 - Robots.txt.
-- Schema markup.
+- Schema.
 - Open Graph.
+- Performance optimization.
 
 
 ---
 
-# Milestone 9 - Final Testing
+# Phase 9 - Final Testing
 
 Testing:
 
 - Mobile devices.
 - Desktop browsers.
-- File uploads.
-- AI responses.
+- SEO checks.
+- AI functionality.
 - Security.
 - Performance.
 
@@ -215,6 +219,14 @@ Testing:
 
 # Development Rule
 
-Do not add new features during V1 development.
+During V1:
 
-Future ideas belong to future versions.
+Do not add:
+
+- Customer system.
+- Case management.
+- Chat system.
+- CRM.
+- Payment system.
+
+Future features belong to future versions.
