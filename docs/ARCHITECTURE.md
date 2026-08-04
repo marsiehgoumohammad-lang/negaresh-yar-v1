@@ -1,155 +1,178 @@
 # Negaresh Yar V1 - Technical Architecture
 
-## Technology Stack
+## Architecture Decision
 
-Backend:
+Negaresh Yar V1 uses a modern full-stack JavaScript architecture.
 
-Laravel
+The reason for this decision is:
+
+- Fast development.
+- Native compatibility with the current development environment.
+- Strong SEO support.
+- Excellent React ecosystem.
+- Simple Gemini API integration.
+
+---
+
+# Technology Stack
+
+## Full Stack Framework
+
+Next.js
+
+Version:
+
+Latest stable version
 
 
-Frontend:
+---
 
-Blade Templates
+## Frontend
+
+React
+
++
+
 Tailwind CSS
-JavaScript
+
++
+
+TypeScript
 
 
-Database:
+---
 
-SQLite for development
+## Backend
 
-MySQL for production
+Next.js Server Actions
+
++
+
+API Routes
 
 
-AI Provider:
+The backend logic is implemented inside the Next.js application.
+
+---
+
+## Database
+
+PostgreSQL
+
+
+ORM:
+
+Prisma
+
+
+---
+
+## AI Provider
 
 Google Gemini API
 
 
 ---
 
-# Architecture Principles
+# Application Architecture
+Browser
 
-The project must follow:
+↓
 
-- Clean structure
-- Simple implementation
-- Maintainable code
-- No unnecessary complexity
+Next.js App Router
 
+↓
+
+React Components
+
+↓
+
+Server Actions / API Routes
+
+↓
+
+Services Layer
+
+↓
+
+Prisma ORM
+
+↓
+
+PostgreSQL Database
 
 ---
 
-# Application Structure
-app/
+# Project Structure
+src/
 
-├── Http/
-│ ├── Controllers/
-│ └── Middleware/
+├── app/
 │
-├── Models/
+├── components/
 │
-├── Services/
+├── services/
 │
-└── Helpers/
-
+├── lib/
+│
+├── prisma/
+│
+├── types/
+│
+└── utils/
 
 ---
 
-# Controllers
+# Main Application Sections
 
-## HomeController
+## Public Website
 
 Responsibilities:
 
-- Homepage rendering.
-- Public website data.
+- Homepage.
+- Services pages.
+- AI interpreter page.
+- Articles.
+- Request page.
 
 
 ---
 
-## AiInterpreterController
+## Admin Panel
 
 Responsibilities:
 
-- Receive uploaded files.
-- Validate files.
-- Send requests to Gemini service.
-- Display AI results.
+- Article management.
+- AI article workflow.
+- Social link management.
+- Invoice generation.
+- Website settings.
 
 
 ---
 
-## ArticleController
+# Service Layer
 
-Responsibilities:
+Business logic must not be placed directly inside UI components.
 
-- Display article list.
-- Display article details.
-
-
----
-
-## AdminController
-
-Responsibilities:
-
-- Admin dashboard.
-
-
----
-
-## AdminArticleController
-
-Responsibilities:
-
-- Create articles.
-- Edit articles.
-- Review articles.
-- Publish articles.
-
-
----
-
-## InvoiceController
-
-Responsibilities:
-
-- Create invoices.
-- Generate invoice PDF.
-
-
----
-
-## SettingController
-
-Responsibilities:
-
-- Manage website settings.
-- Manage social links.
-
-
----
-
-# Services
+Services:
 
 ## GeminiService
 
-Responsible for:
+Responsibilities:
 
 - Gemini API communication.
 - Prompt handling.
-- Error management.
+- Error handling.
 
 
 ---
 
 ## ArticleService
 
-Responsible for:
+Responsibilities:
 
-- Article generation workflow.
-- Review process.
+- Article generation.
+- Review workflow.
 - Score calculation.
 
 
@@ -157,31 +180,33 @@ Responsible for:
 
 ## SeoService
 
-Responsible for:
+Responsibilities:
 
-- Meta data.
+- Metadata generation.
 - Sitemap.
-- Schema.
+- Schema markup.
 
 
 ---
 
 ## InvoiceService
 
-Responsible for:
+Responsibilities:
 
-- Invoice generation.
-- PDF creation.
+- Invoice creation.
+- PDF generation.
 
 
 ---
 
-# Development Rules
+# SEO Architecture
 
-- Business logic should not be placed inside controllers.
-- Services should handle complex operations.
-- Keep components reusable.
-- Avoid unnecessary packages.
+Next.js must use:
+
+- Server Side Rendering.
+- Static generation where possible.
+- Dynamic metadata.
+- Structured data.
 
 
 ---
@@ -190,16 +215,16 @@ Responsible for:
 
 All interfaces must be designed for mobile first.
 
-Desktop layouts are extensions of mobile layouts.
-
+Desktop is an adaptation of mobile experience.
 
 ---
 
-# Build Restriction
+# Development Rules
 
-The implementation agent must not:
+Do not:
 
-- Change architecture.
-- Add features.
-- Install packages without permission.
-- Modify database structure without approval.
+- Add unnecessary packages.
+- Create unnecessary abstractions.
+- Change architecture without permission.
+
+Keep the V1 implementation simple and maintainable.
