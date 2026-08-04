@@ -1,38 +1,50 @@
 # Negaresh Yar V1 - Database Specification
 
-## Database Philosophy
+## Database Technology
 
-The database must remain small and focused.
+Database:
 
-Only features required for V1 should have database tables.
+PostgreSQL
 
-Do not create unnecessary tables for future ideas.
 
----
+ORM:
 
-# Database Tables
-
-The V1 database contains the following tables:
-
-1. users
-2. articles
-3. article_reviews
-4. ai_interpretations
-5. invoices
-6. invoice_items
-7. social_links
-8. settings
+Prisma
 
 
 ---
 
-# 1. users Table
+# Database Philosophy
+
+The database must remain minimal.
+
+Only required V1 features should have database models.
+
+Do not create future systems inside V1.
+
+---
+
+# Prisma Models
+
+The main models are:
+
+- AdminUser
+- Article
+- ArticleReview
+- AiInterpretation
+- Invoice
+- InvoiceItem
+- SocialLink
+- Setting
+
+
+---
+
+# AdminUser Model
 
 Purpose:
 
 Stores administrator accounts only.
-
-There is no public user account system.
 
 
 Fields:
@@ -40,15 +52,19 @@ Fields:
 - id
 - name
 - email
-- password
-- remember_token
-- created_at
-- updated_at
+- passwordHash
+- createdAt
+- updatedAt
+
+
+Important:
+
+There is no public user account system.
 
 
 ---
 
-# 2. articles Table
+# Article Model
 
 Purpose:
 
@@ -62,153 +78,130 @@ Fields:
 - slug
 - excerpt
 - content
-- featured_image
-- meta_title
-- meta_description
+- featuredImage
+- metaTitle
+- metaDescription
 - status
-- published_at
-- created_at
-- updated_at
+- publishedAt
+- createdAt
+- updatedAt
 
 
-Status values:
+Status:
 
-- draft
-- review
-- approved
-- published
+- DRAFT
+- REVIEW
+- APPROVED
+- PUBLISHED
 
 
 ---
 
-# 3. article_reviews Table
+# ArticleReview Model
 
 Purpose:
 
-Stores AI article evaluation results.
+Stores AI article evaluations.
 
 
 Fields:
 
 - id
-- article_id
-- seo_score
-- content_score
-- quality_score
-- final_score
-- review_data
-- created_at
-- updated_at
+- articleId
+- seoScore
+- contentScore
+- qualityScore
+- finalScore
+- reviewData
+- createdAt
 
 
 Relationship:
 
-One article has many reviews.
+One article can have multiple reviews.
 
 
 ---
 
-# 4. ai_interpretations Table
+# AiInterpretation Model
 
 Purpose:
 
-Stores AI interpretation requests.
+Stores AI document interpretation history.
 
 
 Fields:
 
 - id
-- file_path
-- file_type
-- ai_result
+- filePath
+- fileType
+- aiResult
 - status
-- created_at
-- updated_at
+- createdAt
+- updatedAt
 
 
-Status values:
+Status:
 
-- pending
-- processing
-- completed
-- failed
-
-
-Important:
-
-No personal customer information is stored.
+- PENDING
+- PROCESSING
+- COMPLETED
+- FAILED
 
 
 ---
 
-# 5. invoices Table
+# Invoice Model
 
 Purpose:
 
-Stores invoice information.
+Simple invoice generation.
 
 
 Fields:
 
 - id
-- invoice_number
-- customer_name
-- customer_phone
-- total_amount
-- created_at
-- updated_at
+- invoiceNumber
+- customerName
+- customerPhone
+- totalAmount
+- createdAt
+- updatedAt
 
 
 Note:
 
-This is not a customer management system.
+This is not a CRM system.
 
 
 ---
 
-# 6. invoice_items Table
+# InvoiceItem Model
 
 Purpose:
 
-Stores invoice service rows.
+Invoice rows.
 
 
 Fields:
 
 - id
-- invoice_id
+- invoiceId
 - description
 - quantity
 - amount
-- created_at
-- updated_at
-
-
-Relationship:
-
-One invoice has many items.
 
 
 ---
 
-# 7. social_links Table
+# SocialLink Model
 
 Purpose:
 
-Stores messenger links.
+Manage messenger links.
 
 
-Fields:
-
-- id
-- platform
-- url
-- is_active
-- created_at
-- updated_at
-
-
-Supported platforms:
+Platforms:
 
 - WhatsApp
 - Telegram
@@ -217,46 +210,41 @@ Supported platforms:
 - Bale
 
 
----
-
-# 8. settings Table
-
-Purpose:
-
-Stores general website settings.
-
-
 Fields:
 
 - id
-- key
-- value
-- created_at
-- updated_at
+- platform
+- url
+- active
+
+
+---
+
+# Setting Model
+
+Purpose:
+
+General website settings.
 
 
 Examples:
 
-- site_name
+- siteName
 - logo
 - phone
-- footer_text
-- seo_title
-- seo_description
+- seoTitle
+- seoDescription
 
 
 ---
 
-# Database Rules
+# Forbidden V1 Models
 
-The following must NOT be added in V1:
+Do not create:
 
-- customers table
-- user_profiles table
-- conversations table
-- tickets table
-- cases table
-- payments table
-
-
-The database must stay minimal and maintainable.
+- Customers
+- Cases
+- Conversations
+- Tickets
+- Payments
+- CRM tables
